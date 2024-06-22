@@ -1,4 +1,4 @@
-package com.comunicacao.configuracao;
+package com.comunicacao.configuracao.banco;
 
 import org.hibernate.dialect.PostgresPlusDialect;
 import org.hibernate.dialect.sequence.SequenceSupport;
