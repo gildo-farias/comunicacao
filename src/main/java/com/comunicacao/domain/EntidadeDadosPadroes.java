@@ -1,5 +1,6 @@
 package com.comunicacao.domain;
 
+import com.comunicacao.utils.DateUtils;
 import com.comunicacao.utils.EntidadeUtils;
 import com.comunicacao.utils.StringUtils;
 import jakarta.persistence.Column;
@@ -33,21 +34,29 @@ public class EntidadeDadosPadroes {
     @Column(name = "log_falha", columnDefinition = EntidadeUtils.TEXT)
     private String logFalha;
 
-    public void prePersist() {
+    public final void prePersist() {
         this.dataCriacao = LocalDateTime.now();
     }
 
-    public void enviado() {
+    public final void enviado() {
+        this.tentativas++;
         this.falha = false;
         this.enviado = true;
         this.dataEnvio = LocalDateTime.now();
     }
 
-    public void falha(String causa) {
+    @SuppressWarnings("StringBufferReplaceableByString")
+    public final void falha(String causa) {
+        this.tentativas++;
         this.enviado = false;
         this.falha = true;
         StringBuilder logFalha = new StringBuilder(StringUtils.vazia(this.logFalha) ? "" : this.logFalha);
-//        this.logFalha = logFalha.append("##");
+        this.logFalha = logFalha
+                .append("#")
+                .append(DateUtils.localDateTimeToString(LocalDateTime.now()))
+                .append("#")
+                .append(causa)
+                .toString();
     }
 
 }
