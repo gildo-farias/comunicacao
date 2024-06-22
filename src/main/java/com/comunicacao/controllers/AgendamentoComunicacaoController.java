@@ -2,12 +2,10 @@ package com.comunicacao.controllers;
 
 import com.comunicacao.controllers.requisicoes.AgendamentoComunicacaoRequisicao;
 import com.comunicacao.domain.agendamento.AgendamentoComunicacaoService;
+import com.comunicacao.domain.agendamento.AgendamentoStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,6 +18,13 @@ public class AgendamentoComunicacaoController {
     public ResponseEntity<String> agendar(@RequestBody AgendamentoComunicacaoRequisicao requisicao) {
         String codigoRastreio = service.agendar(requisicao);
         return ResponseEntity.accepted().body(codigoRastreio);
+    }
+
+    @GetMapping("/status/{codigoRastreio}")
+    public ResponseEntity<AgendamentoStatus> visualizarStatus(@PathVariable String codigoRastreio) {
+        return service.visualizarStatus(codigoRastreio)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
 }
