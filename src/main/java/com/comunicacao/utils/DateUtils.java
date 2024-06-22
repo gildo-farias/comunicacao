@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
+@SuppressWarnings("unused")
 public class DateUtils {
 
     public static final String PADRAO_DATA = "dd/MM/yyyy";
@@ -27,9 +28,4 @@ public class DateUtils {
         return localTime.format(FORMATO_PADRAO_HORA);
     }
 
-    public static void main(String[] args) {
-        LocalTime agora = LocalTime.now();
-        System.out.println(agora);
-        System.out.println(localTimeToString(agora));
-    }
 }
