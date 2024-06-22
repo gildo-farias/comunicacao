@@ -15,6 +15,9 @@ import java.time.LocalDateTime;
 @Embeddable
 public class EntidadeDadosPadroes {
 
+    @Column(name = "conteudo", columnDefinition = EntidadeUtils.TEXT)
+    private String conteudo;
+
     @Setter(AccessLevel.NONE)
     @Column(name = "data_criacao")
     private LocalDateTime dataCriacao;
