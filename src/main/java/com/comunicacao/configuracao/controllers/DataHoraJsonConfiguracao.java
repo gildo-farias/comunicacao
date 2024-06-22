@@ -1,4 +1,4 @@
-package com.comunicacao.configuracao;
+package com.comunicacao.configuracao.controllers;
 
 import com.comunicacao.utils.DateUtils;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
