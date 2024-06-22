@@ -12,8 +12,9 @@ class EmailServiceImpl implements EmailService {
 
     @Bean
     void criarRegistro() {
-        EmailEntidade emailEntidade = new EmailEntidade();
-        emailEntidadeRepository.findAll();
+//        EmailEntidade emailEntidade = new EmailEntidade();
+//        emailEntidade.setDestino("gildo@gmail.com");
+//        emailEntidadeRepository.saveAndFlush(emailEntidade);
     }
 
 }

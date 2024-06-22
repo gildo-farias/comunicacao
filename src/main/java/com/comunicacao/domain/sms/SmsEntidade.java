@@ -1,5 +1,6 @@
-package com.comunicacao.domain.email;
+package com.comunicacao.domain.sms;
 
+import com.comunicacao.domain.sms.SmsEntidade;
 import com.comunicacao.utils.EntidadeUtils;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -7,13 +8,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = EmailEntidade.NOME_TABELA)
-@SequenceGenerator(name = EmailEntidade.GENERATOR, sequenceName = EmailEntidade.SEQUENCE, allocationSize = 1)
+@Table(name = SmsEntidade.NOME_TABELA)
+@SequenceGenerator(name = SmsEntidade.GENERATOR, sequenceName = SmsEntidade.SEQUENCE, allocationSize = 1)
 @Getter(AccessLevel.PACKAGE)
 @Setter(AccessLevel.PACKAGE)
-class EmailEntidade {
+class SmsEntidade {
 
-    static final String NOME_TABELA = "email";
+    static final String NOME_TABELA = "sms";
     static final String COLUMN_ID = "id";
     static final String GENERATOR = NOME_TABELA + "_generator";
     static final String SEQUENCE = NOME_TABELA + "_" + COLUMN_ID + "_seq";
@@ -24,7 +25,7 @@ class EmailEntidade {
     @Setter(AccessLevel.NONE)
     private Long id;
 
-    @Column(name = "destino", columnDefinition = "VARCHAR(150)")
+    @Column(name = "destino", columnDefinition = "VARCHAR(20)")
     private String destino;
 
 }
