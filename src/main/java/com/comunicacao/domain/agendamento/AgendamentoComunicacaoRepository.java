@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 interface AgendamentoComunicacaoRepository extends JpaRepository<AgendamentoComunicacaoEntidade, Long> {
 
-    @Query("SELECT a FROM AgendamentoComunicacaoEntidade a WHERE a.codigoRastreiro = ?1")
+    @Query("SELECT a FROM AgendamentoComunicacaoEntidade a WHERE NOT a.excluido AND a.codigoRastreiro = ?1")
     Optional<AgendamentoComunicacaoEntidade> buscarPeloCodigoRastreio(String codigoRastreiro);
 
     @Modifying
