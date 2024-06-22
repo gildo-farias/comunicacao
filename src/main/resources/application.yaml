@@ -1,0 +1,28 @@
+server:
+  port: 5000
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    show-sql: false
+    database-platform: org.hibernate.dialect.PostgresPlusDialect
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+  sql:
+    init:
+      mode: always
+  batch:
+    jdbc:
+      initialize-schema: always
+
+logging:
+  level:
+    org:
+      springframework:
+        web: [ERROR,DEBUG,INFO]
+      hibernate:
+        SQL: ERROR
+        TYPE: ERROR
