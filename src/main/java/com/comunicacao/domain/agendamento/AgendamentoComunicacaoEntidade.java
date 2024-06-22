@@ -8,6 +8,8 @@ import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
@@ -15,7 +17,10 @@ import java.time.LocalDateTime;
 @SequenceGenerator(name = AgendamentoComunicacaoEntidade.GENERATOR, sequenceName = AgendamentoComunicacaoEntidade.SEQUENCE, allocationSize = 1)
 @Getter(AccessLevel.PUBLIC)
 @Setter(AccessLevel.PACKAGE)
-public class AgendamentoComunicacaoEntidade {
+class AgendamentoComunicacaoEntidade implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 2040768015015828876L;
 
     static final String NOME_TABELA = "agendamentos_comunicacao";
     static final String COLUMN_ID = "id";
