@@ -1,6 +1,7 @@
 package com.comunicacao.domain;
 
 import com.comunicacao.utils.EntidadeUtils;
+import com.comunicacao.utils.StringUtils;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.PrePersist;
@@ -10,6 +11,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Data
 @Embeddable
@@ -34,9 +36,21 @@ public class EntidadeDadosPadroes {
     @Column(name = "log_falha", columnDefinition = EntidadeUtils.TEXT)
     private String logFalha;
 
-    @PrePersist
     public void prePersist() {
         this.dataCriacao = LocalDateTime.now();
+    }
+
+    public void enviador() {
+        this.falha = false;
+        this.enviado = true;
+        this.dataEnvio = LocalDateTime.now();
+    }
+
+    public void falha(String causa) {
+        this.enviado = false;
+        this.falha = true;
+        StringBuilder logFalha = new StringBuilder(StringUtils.vazia(this.logFalha) ? "" : this.logFalha);
+//        this.logFalha = logFalha.append("##");
     }
 
 }

@@ -1,5 +1,6 @@
 package com.comunicacao.domain.sms;
 
+import com.comunicacao.domain.EntidadeDadosPadroes;
 import com.comunicacao.domain.sms.SmsEntidade;
 import com.comunicacao.utils.EntidadeUtils;
 import jakarta.persistence.*;
@@ -27,5 +28,17 @@ class SmsEntidade {
 
     @Column(name = "destino", columnDefinition = "VARCHAR(20)")
     private String destino;
+
+    @Embedded
+    private EntidadeDadosPadroes dadosPadroes;
+
+    public SmsEntidade() {
+        this.dadosPadroes = new EntidadeDadosPadroes();
+    }
+
+    @PrePersist
+    private void prePersist() {
+        this.dadosPadroes.prePersist();
+    }
 
 }

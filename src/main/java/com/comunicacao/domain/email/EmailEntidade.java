@@ -1,5 +1,6 @@
 package com.comunicacao.domain.email;
 
+import com.comunicacao.domain.EntidadeDadosPadroes;
 import com.comunicacao.utils.EntidadeUtils;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -26,5 +27,17 @@ class EmailEntidade {
 
     @Column(name = "destino", columnDefinition = "VARCHAR(150)")
     private String destino;
+
+    @Embedded
+    private EntidadeDadosPadroes dadosPadroes;
+
+    public EmailEntidade() {
+        this.dadosPadroes = new EntidadeDadosPadroes();
+    }
+
+    @PrePersist
+    private void prePersist() {
+        this.dadosPadroes.prePersist();
+    }
 
 }
