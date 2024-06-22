@@ -54,7 +54,7 @@ public class EntidadeDadosPadroes {
         this.logFalha = logFalha
                 .append("#")
                 .append(DateUtils.localDateTimeToString(LocalDateTime.now()))
-                .append("#")
+                .append("-")
                 .append(causa)
                 .toString();
     }

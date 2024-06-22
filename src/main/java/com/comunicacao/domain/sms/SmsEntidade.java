@@ -1,7 +1,6 @@
 package com.comunicacao.domain.sms;
 
 import com.comunicacao.domain.EntidadeDadosPadroes;
-import com.comunicacao.domain.sms.SmsEntidade;
 import com.comunicacao.utils.EntidadeUtils;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
