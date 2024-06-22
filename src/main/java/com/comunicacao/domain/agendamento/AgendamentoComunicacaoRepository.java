@@ -10,11 +10,11 @@ import java.util.Optional;
 @Repository
 interface AgendamentoComunicacaoRepository extends JpaRepository<AgendamentoComunicacaoEntidade, Long> {
 
-    @Query("SELECT a FROM AgendamentoComunicacaoEntidade a WHERE NOT a.excluido AND a.codigoRastreiro = ?1")
+    @Query("SELECT a FROM AgendamentoComunicacaoEntidade a WHERE NOT a.excluido AND a.codigoRastreio = ?1")
     Optional<AgendamentoComunicacaoEntidade> buscarPeloCodigoRastreio(String codigoRastreiro);
 
     @Modifying
-    @Query("UPDATE AgendamentoComunicacaoEntidade a SET a.excluido = true WHERE a.codigoRastreiro = ?1")
+    @Query("UPDATE AgendamentoComunicacaoEntidade a SET a.excluido = true WHERE a.codigoRastreio = ?1")
     void apagarPeloCodigoDeRastreio(String codigoRastreio);
 
 }
