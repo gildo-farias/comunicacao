@@ -4,14 +4,11 @@ import com.comunicacao.utils.EntidadeUtils;
 import com.comunicacao.utils.StringUtils;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.PrePersist;
 import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 @Data
 @Embeddable
@@ -40,7 +37,7 @@ public class EntidadeDadosPadroes {
         this.dataCriacao = LocalDateTime.now();
     }
 
-    public void enviador() {
+    public void enviado() {
         this.falha = false;
         this.enviado = true;
         this.dataEnvio = LocalDateTime.now();
