@@ -27,4 +27,10 @@ public class AgendamentoComunicacaoController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @DeleteMapping("/{codigoRastreio}")
+    public ResponseEntity<Void> apagar(@PathVariable String codigoRastreio) {
+        service.apagar(codigoRastreio);
+        return ResponseEntity.noContent().build();
+    }
+
 }

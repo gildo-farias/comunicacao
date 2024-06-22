@@ -10,4 +10,6 @@ public interface AgendamentoComunicacaoService {
 
     Optional<AgendamentoStatus> visualizarStatus(String codigoRastreio);
 
+    void apagar(String codigoRastreio);
+
 }

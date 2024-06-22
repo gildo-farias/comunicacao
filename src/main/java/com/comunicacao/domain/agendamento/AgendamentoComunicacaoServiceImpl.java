@@ -1,6 +1,7 @@
 package com.comunicacao.domain.agendamento;
 
 import com.comunicacao.controllers.requisicoes.AgendamentoComunicacaoRequisicao;
+import com.comunicacao.exceptions.CodigoRastreioInvalido;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +32,13 @@ class AgendamentoComunicacaoServiceImpl implements AgendamentoComunicacaoService
     public Optional<AgendamentoStatus> visualizarStatus(String codigoRastreio) {
         return isBlank(codigoRastreio) ? Optional.empty() :
                 repository.buscarPeloCodigoRastreio(codigoRastreio).map(AgendamentoComunicacaoEntidade::getStatus);
+    }
+
+    @Override
+    public void apagar(String codigoRastreio) {
+        if (isBlank(codigoRastreio))
+            throw new CodigoRastreioInvalido();
+        repository.apagarPeloCodigoDeRastreio(codigoRastreio);
     }
 
 }
