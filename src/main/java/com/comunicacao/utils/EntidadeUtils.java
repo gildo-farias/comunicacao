@@ -1,6 +1,5 @@
 package com.comunicacao.utils;
 
-@SuppressWarnings("unused")
 public class EntidadeUtils {
 
     public static final String BIGSERIAL = "BIGSERIAL";
