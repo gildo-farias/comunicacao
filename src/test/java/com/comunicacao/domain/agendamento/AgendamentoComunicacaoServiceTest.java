@@ -3,6 +3,7 @@ package com.comunicacao.domain.agendamento;
 import com.comunicacao.EnvioDeComunicacaoApplication;
 import com.comunicacao.controllers.requisicoes.AgendamentoComunicacaoRequisicao;
 import com.comunicacao.exceptions.DataEnvioInvalida;
+import com.comunicacao.services.AgendamentoComunicacaoService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

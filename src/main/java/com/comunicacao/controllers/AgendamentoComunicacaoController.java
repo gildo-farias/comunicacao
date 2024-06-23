@@ -3,7 +3,7 @@ package com.comunicacao.controllers;
 import com.comunicacao.controllers.requisicoes.AgendamentoComunicacaoRequisicao;
 import com.comunicacao.controllers.respostas.RespostaCodigoRastreio;
 import com.comunicacao.controllers.respostas.RespostaStatus;
-import com.comunicacao.domain.agendamento.AgendamentoComunicacaoService;
+import com.comunicacao.services.AgendamentoComunicacaoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

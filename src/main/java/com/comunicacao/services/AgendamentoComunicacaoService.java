@@ -1,6 +1,7 @@
-package com.comunicacao.domain.agendamento;
+package com.comunicacao.services;
 
 import com.comunicacao.controllers.requisicoes.AgendamentoComunicacaoRequisicao;
+import com.comunicacao.domain.agendamento.AgendamentoStatus;
 
 import java.util.Optional;
 

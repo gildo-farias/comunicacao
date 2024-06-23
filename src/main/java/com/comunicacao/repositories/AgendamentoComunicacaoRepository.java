@@ -1,5 +1,7 @@
-package com.comunicacao.domain.agendamento;
+package com.comunicacao.repositories;
 
+import com.comunicacao.domain.agendamento.AgendamentoComunicacaoEntidade;
+import com.comunicacao.domain.agendamento.AgendamentoStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -9,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 @Repository
-interface AgendamentoComunicacaoRepository extends JpaRepository<AgendamentoComunicacaoEntidade, Long> {
+public interface AgendamentoComunicacaoRepository extends JpaRepository<AgendamentoComunicacaoEntidade, Long> {
 
     @Query("SELECT a.status FROM AgendamentoComunicacaoEntidade a WHERE NOT a.excluido AND a.codigoRastreio = ?1")
     Optional<AgendamentoStatus> buscarStatusPeloCodigoRastreio(String codigoRastreiro);

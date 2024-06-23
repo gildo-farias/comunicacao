@@ -1,7 +1,10 @@
-package com.comunicacao.domain.agendamento;
+package com.comunicacao.services;
 
 import com.comunicacao.controllers.requisicoes.AgendamentoComunicacaoRequisicao;
+import com.comunicacao.domain.agendamento.AgendamentoComunicacaoEntidade;
+import com.comunicacao.domain.agendamento.AgendamentoStatus;
 import com.comunicacao.mappers.AgendamentoComunicaoEntidadeMapper;
+import com.comunicacao.repositories.AgendamentoComunicacaoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
