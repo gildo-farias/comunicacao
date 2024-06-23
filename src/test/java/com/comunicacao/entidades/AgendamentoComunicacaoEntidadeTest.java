@@ -31,9 +31,10 @@ public class AgendamentoComunicacaoEntidadeTest extends TesteAnotacaoMockito {
     @Test
     void agendamentoDeuFalha() {
         AgendamentoComunicacaoEntidade entidade = this.montarEntidade();
-        entidade.falha("Servidor fora do ar!");
+        String causa = "Servidor fora do ar!";
+        entidade.falha(causa);
         Assertions.assertThat(entidade.getStatus()).isEqualTo(AgendamentoStatus.FALHA);
-        Assertions.assertThat(entidade.getLogFalha()).isNotBlank();
+        Assertions.assertThat(entidade.getLogFalha()).isEqualTo(causa);
     }
 
 }
