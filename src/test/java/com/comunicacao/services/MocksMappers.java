@@ -8,6 +8,8 @@ import com.comunicacao.entidades.AgendamentoComunicacaoEntidade;
 import java.time.LocalDateTime;
 
 public final class MocksMappers {
+    public static final String CODIGO_RASTREIO = "5b421cf7-0ed2-47a9-916e-21c167b76173";
+
     public static AgendamentoComunicacaoRequisicao mapearRequisicaoCompleta() {
         return new AgendamentoComunicacaoRequisicao(
                 LocalDateTime.now(),
