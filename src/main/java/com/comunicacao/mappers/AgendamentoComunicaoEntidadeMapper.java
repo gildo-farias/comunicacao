@@ -16,7 +16,7 @@ public class AgendamentoComunicaoEntidadeMapper {
         agendamento.setTipo(requisicao.tipo());
         agendamento.setDestino(requisicao.destino());
         agendamento.setConteudo(requisicao.conteudo());
-        LocalDateTime dataEnvio = requisicao.dataHora();
+        LocalDateTime dataEnvio = requisicao.dataHoraEnvio();
         if (Objects.isNull(dataEnvio))
             throw new DataEnvioInvalida();
         agendamento.setDataEnvio(dataEnvio);
