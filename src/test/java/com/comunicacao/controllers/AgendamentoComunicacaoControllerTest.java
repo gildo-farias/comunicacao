@@ -1,5 +1,6 @@
 package com.comunicacao.controllers;
 
+import com.comunicacao.controllers.respostas.RespostaStatus;
 import com.comunicacao.services.AgendamentoComunicacaoService;
 import com.comunicacao.services.TesteAnotacaoMockito;
 import org.assertj.core.api.Assertions;
@@ -13,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 public class AgendamentoComunicacaoControllerTest extends TesteAnotacaoMockito {
 
     @InjectMocks
+
     private AgendamentoComunicacaoController controller;
 
     @Mock
@@ -21,11 +23,18 @@ public class AgendamentoComunicacaoControllerTest extends TesteAnotacaoMockito {
     @Test
     public void givenCodigoRastreioWhenDeletarAgendamentoThenDeveRetornar204() {
         String codigoRastreio = "5b421cf7-0ed2-47a9-916e-21c167b76173";
-
         ResponseEntity<Void> response = controller.apagar(codigoRastreio);
 
         Mockito.verify(service).apagar(codigoRastreio);
         Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
+    }
+
+    @Test
+    public void givenCodigoRastreioWhenVisualizarStatusAgendamentoThenDeveRetornar404() {
+        String codigoRastreio = "5b421cf7-0ed2-47a9-916e-21c167b76173";
+        ResponseEntity<RespostaStatus> response = controller.visualizarStatus(codigoRastreio);
+
+        Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
     }
 
 }
