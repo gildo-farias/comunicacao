@@ -1,6 +1,7 @@
 package com.comunicacao.controllers;
 
 import com.comunicacao.controllers.requisicoes.AgendamentoComunicacaoRequisicao;
+import com.comunicacao.controllers.respostas.RespostaStatus;
 import com.comunicacao.domain.agendamento.AgendamentoComunicacaoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -22,9 +23,10 @@ public class AgendamentoComunicacaoController {
     }
 
     @GetMapping("/status/{codigoRastreio}")
-    public ResponseEntity<String> visualizarStatus(@PathVariable String codigoRastreio) {
+    public ResponseEntity<RespostaStatus> visualizarStatus(@PathVariable String codigoRastreio) {
         return service.visualizarStatus(codigoRastreio)
                 .map(Enum::name)
+                .map(RespostaStatus::new)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
