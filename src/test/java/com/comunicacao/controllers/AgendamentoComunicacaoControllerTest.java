@@ -4,7 +4,7 @@ import com.comunicacao.controllers.requisicoes.AgendamentoComunicacaoRequisicao;
 import com.comunicacao.controllers.respostas.RespostaCodigoRastreio;
 import com.comunicacao.controllers.respostas.RespostaStatus;
 import com.comunicacao.services.AgendamentoComunicacaoService;
-import com.comunicacao.services.MockRequisicaoCompleta;
+import com.comunicacao.services.MocksMappers;
 import com.comunicacao.services.TesteAnotacaoMockito;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -41,7 +41,7 @@ public class AgendamentoComunicacaoControllerTest extends TesteAnotacaoMockito {
 
     @Test
     public void givenDadosAgendamentoWhenAgendarAgendamentoThenDeveRetornar202() {
-        AgendamentoComunicacaoRequisicao requisicao = MockRequisicaoCompleta.get();
+        AgendamentoComunicacaoRequisicao requisicao = MocksMappers.mapearRequisicaoCompleta();
         ResponseEntity<RespostaCodigoRastreio> response = controller.agendar(requisicao);
 
         Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.ACCEPTED);

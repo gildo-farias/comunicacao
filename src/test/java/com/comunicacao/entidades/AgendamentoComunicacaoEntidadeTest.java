@@ -2,7 +2,7 @@ package com.comunicacao.entidades;
 
 import com.comunicacao.controllers.mappers.AgendamentoComunicaoEntidadeMapper;
 import com.comunicacao.domain.agendamento.AgendamentoStatus;
-import com.comunicacao.services.MockRequisicaoCompleta;
+import com.comunicacao.services.MocksMappers;
 import com.comunicacao.services.TesteAnotacaoMockito;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 public class AgendamentoComunicacaoEntidadeTest extends TesteAnotacaoMockito {
 
     private AgendamentoComunicacaoEntidade montarEntidade() {
-        return AgendamentoComunicaoEntidadeMapper.mapear(MockRequisicaoCompleta.get());
+        return AgendamentoComunicaoEntidadeMapper.mapear(MocksMappers.mapearRequisicaoCompleta());
     }
 
     @Test
