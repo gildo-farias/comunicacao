@@ -11,12 +11,12 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/agendamento", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/agendamento", produces = APPLICATION_JSON_VALUE)
 public class AgendamentoComunicacaoController {
 
     private final AgendamentoComunicacaoService service;
 
-    @PostMapping
+    @PostMapping(consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<String> agendar(@RequestBody AgendamentoComunicacaoRequisicao requisicao) {
         String codigoRastreio = service.agendar(requisicao);
         return ResponseEntity.accepted().body(codigoRastreio);
