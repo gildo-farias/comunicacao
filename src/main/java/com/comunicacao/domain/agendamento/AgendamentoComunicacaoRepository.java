@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -14,6 +15,7 @@ interface AgendamentoComunicacaoRepository extends JpaRepository<AgendamentoComu
     Optional<AgendamentoStatus> buscarStatusPeloCodigoRastreio(String codigoRastreiro);
 
     @Modifying
+    @Transactional
     @Query("UPDATE AgendamentoComunicacaoEntidade a SET a.excluido = true WHERE a.codigoRastreio = ?1")
     void apagarPeloCodigoDeRastreio(String codigoRastreio);
 
