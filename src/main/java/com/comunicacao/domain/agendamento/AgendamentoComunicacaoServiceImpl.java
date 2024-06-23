@@ -24,8 +24,7 @@ class AgendamentoComunicacaoServiceImpl implements AgendamentoComunicacaoService
 
     @Override
     public Optional<AgendamentoStatus> visualizarStatus(String codigoRastreio) {
-        return isBlank(codigoRastreio) ? Optional.empty() :
-                repository.buscarPeloCodigoRastreio(codigoRastreio).map(AgendamentoComunicacaoEntidade::getStatus);
+        return isBlank(codigoRastreio) ? Optional.empty() : repository.buscarStatusPeloCodigoRastreio(codigoRastreio);
     }
 
     @Override
