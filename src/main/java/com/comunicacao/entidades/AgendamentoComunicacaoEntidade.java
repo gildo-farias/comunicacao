@@ -14,7 +14,11 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = AgendamentoComunicacaoEntidade.NOME_TABELA)
+@Table(name = AgendamentoComunicacaoEntidade.NOME_TABELA, indexes = {
+        @Index(columnList = "status", name = "status_idx"),
+        @Index(columnList = "excluido", name = "excluido_idx"),
+        @Index(columnList = "codigo_rastreio", name = "codigo_rastreio_idx")
+})
 @SequenceGenerator(name = AgendamentoComunicacaoEntidade.GENERATOR, sequenceName = AgendamentoComunicacaoEntidade.SEQUENCE, allocationSize = 1)
 @Getter(AccessLevel.PUBLIC)
 @Setter(AccessLevel.PUBLIC)
