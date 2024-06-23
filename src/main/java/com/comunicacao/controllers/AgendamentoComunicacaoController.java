@@ -6,6 +6,7 @@ import com.comunicacao.controllers.respostas.RespostaCodigoRastreio;
 import com.comunicacao.controllers.respostas.RespostaStatus;
 import com.comunicacao.entidades.AgendamentoComunicacaoEntidade;
 import com.comunicacao.services.AgendamentoComunicacaoService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class AgendamentoComunicacaoController {
     private final AgendamentoComunicacaoService service;
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
-    public ResponseEntity<RespostaCodigoRastreio> agendar(@RequestBody AgendamentoComunicacaoRequisicao requisicao) {
+    public ResponseEntity<RespostaCodigoRastreio> agendar(@RequestBody @Valid AgendamentoComunicacaoRequisicao requisicao) {
         AgendamentoComunicacaoEntidade entidade = AgendamentoComunicaoEntidadeMapper.mapear(requisicao);
         String codigoRastreio = service.agendar(entidade);
         return ResponseEntity.accepted().body(new RespostaCodigoRastreio(codigoRastreio));
