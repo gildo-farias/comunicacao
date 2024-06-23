@@ -1,13 +1,13 @@
 package com.comunicacao.services;
 
-import com.comunicacao.controllers.requisicoes.AgendamentoComunicacaoRequisicao;
 import com.comunicacao.domain.agendamento.AgendamentoStatus;
+import com.comunicacao.entidades.AgendamentoComunicacaoEntidade;
 
 import java.util.Optional;
 
 public interface AgendamentoComunicacaoService {
 
-    String agendar(AgendamentoComunicacaoRequisicao requisicao);
+    String agendar(AgendamentoComunicacaoEntidade entidade);
 
     Optional<AgendamentoStatus> visualizarStatus(String codigoRastreio);
 

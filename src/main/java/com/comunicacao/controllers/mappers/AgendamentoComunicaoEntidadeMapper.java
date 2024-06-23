@@ -1,4 +1,4 @@
-package com.comunicacao.mappers;
+package com.comunicacao.controllers.mappers;
 
 import com.comunicacao.controllers.requisicoes.AgendamentoComunicacaoRequisicao;
 import com.comunicacao.domain.agendamento.AgendamentoStatus;
@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public class AgendamentoComunicaoEntidadeMapper {
 
-    public static AgendamentoComunicacaoEntidade mapearEntidade(AgendamentoComunicacaoRequisicao requisicao) {
+    public static AgendamentoComunicacaoEntidade mapear(AgendamentoComunicacaoRequisicao requisicao) {
         AgendamentoComunicacaoEntidade agendamento = new AgendamentoComunicacaoEntidade();
         agendamento.setTipo(AgendamentoTipo.valueOf(requisicao.tipo()));
         agendamento.setDestino(requisicao.destino());

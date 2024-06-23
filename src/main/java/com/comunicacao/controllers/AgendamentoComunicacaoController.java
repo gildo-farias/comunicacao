@@ -1,8 +1,10 @@
 package com.comunicacao.controllers;
 
+import com.comunicacao.controllers.mappers.AgendamentoComunicaoEntidadeMapper;
 import com.comunicacao.controllers.requisicoes.AgendamentoComunicacaoRequisicao;
 import com.comunicacao.controllers.respostas.RespostaCodigoRastreio;
 import com.comunicacao.controllers.respostas.RespostaStatus;
+import com.comunicacao.entidades.AgendamentoComunicacaoEntidade;
 import com.comunicacao.services.AgendamentoComunicacaoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +21,8 @@ public class AgendamentoComunicacaoController {
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<RespostaCodigoRastreio> agendar(@RequestBody AgendamentoComunicacaoRequisicao requisicao) {
-        String codigoRastreio = service.agendar(requisicao);
+        AgendamentoComunicacaoEntidade entidade = AgendamentoComunicaoEntidadeMapper.mapear(requisicao);
+        String codigoRastreio = service.agendar(entidade);
         return ResponseEntity.accepted().body(new RespostaCodigoRastreio(codigoRastreio));
     }
 
