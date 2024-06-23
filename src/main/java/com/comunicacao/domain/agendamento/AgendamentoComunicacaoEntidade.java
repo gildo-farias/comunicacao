@@ -28,14 +28,14 @@ public class AgendamentoComunicacaoEntidade implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = GENERATOR)
-    @Column(name = "id", columnDefinition = EntidadeConstrains.BIGSERIAL)
+    @Column(name = "id", columnDefinition = EntidadeConstants.BIGSERIAL)
     @Setter(AccessLevel.NONE)
     private Long id;
 
     @Column(name = "destino", columnDefinition = "VARCHAR(150)")
     private String destino;
 
-    @Column(name = "conteudo", columnDefinition = EntidadeConstrains.TEXT)
+    @Column(name = "conteudo", columnDefinition = EntidadeConstants.TEXT)
     private String conteudo;
 
     @CreatedDate
@@ -52,7 +52,7 @@ public class AgendamentoComunicacaoEntidade implements Serializable {
     private LocalDateTime dataEnvio;
 
     @Setter(AccessLevel.NONE)
-    @Column(name = "tentativas", columnDefinition = EntidadeConstrains.INT_DEFAULT_0)
+    @Column(name = "tentativas", columnDefinition = EntidadeConstants.INT_DEFAULT_0)
     private int tentativas;
 
     @Enumerated(value = EnumType.STRING)
@@ -64,14 +64,14 @@ public class AgendamentoComunicacaoEntidade implements Serializable {
     private AgendamentoTipo tipo;
 
     @Setter(AccessLevel.NONE)
-    @Column(name = "log_falha", columnDefinition = EntidadeConstrains.TEXT)
+    @Column(name = "log_falha", columnDefinition = EntidadeConstants.TEXT)
     private String logFalha;
 
     @Setter(AccessLevel.NONE)
-    @Column(name = "excluido", columnDefinition = EntidadeConstrains.BOOLEAN_DEFAULT_FALSE)
+    @Column(name = "excluido", columnDefinition = EntidadeConstants.BOOLEAN_DEFAULT_FALSE)
     private boolean excluido;
 
-    @Column(name = "codigo_rastreio", columnDefinition = EntidadeConstrains.TEXT)
+    @Column(name = "codigo_rastreio", columnDefinition = EntidadeConstants.TEXT)
     private String codigoRastreio;
 
     // Esse método seria para o futuro na implementação do envio

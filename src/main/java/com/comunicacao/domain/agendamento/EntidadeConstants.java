@@ -1,6 +1,6 @@
 package com.comunicacao.domain.agendamento;
 
-public final class EntidadeConstrains {
+public final class EntidadeConstants {
 
     public static final String BIGSERIAL = "BIGSERIAL";
     public static final String BOOLEAN_DEFAULT_FALSE = "boolean DEFAULT false";
