@@ -6,7 +6,7 @@ spring:
       ddl-auto: update
     generate-ddl: true
     show-sql: false
-    database-platform: org.hibernate.dialect.PostgresPlusDialect
+    database-platform: com.comunicacao.configuracao.banco.PostgresPlusDialectImpl
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres

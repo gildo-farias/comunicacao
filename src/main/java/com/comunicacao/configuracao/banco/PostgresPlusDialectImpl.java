@@ -5,7 +5,7 @@ import org.hibernate.dialect.sequence.SequenceSupport;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-class PostgresPlusDialectImpl extends PostgresPlusDialect {
+public class PostgresPlusDialectImpl extends PostgresPlusDialect {
 
     @Override
     public SequenceSupport getSequenceSupport() {
