@@ -7,9 +7,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
+
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/agendamento")
+@RequestMapping(value = "/agendamento", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 public class AgendamentoComunicacaoController {
 
     private final AgendamentoComunicacaoService service;
