@@ -2,7 +2,6 @@ package com.comunicacao.controllers;
 
 import com.comunicacao.controllers.requisicoes.AgendamentoComunicacaoRequisicao;
 import com.comunicacao.domain.agendamento.AgendamentoComunicacaoService;
-import com.comunicacao.domain.agendamento.AgendamentoStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,8 +22,9 @@ public class AgendamentoComunicacaoController {
     }
 
     @GetMapping("/status/{codigoRastreio}")
-    public ResponseEntity<AgendamentoStatus> visualizarStatus(@PathVariable String codigoRastreio) {
+    public ResponseEntity<String> visualizarStatus(@PathVariable String codigoRastreio) {
         return service.visualizarStatus(codigoRastreio)
+                .map(Enum::name)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
