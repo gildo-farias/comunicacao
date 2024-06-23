@@ -1,4 +1,4 @@
-package com.comunicacao.controllers;
+package com.comunicacao.domain;
 
 import com.comunicacao.controllers.requisicoes.AgendamentoComunicacaoRequisicao;
 import com.comunicacao.domain.agendamento.AgendamentoComunicacaoService;
