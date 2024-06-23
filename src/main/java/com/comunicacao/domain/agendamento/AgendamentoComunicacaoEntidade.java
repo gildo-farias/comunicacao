@@ -1,6 +1,5 @@
 package com.comunicacao.domain.agendamento;
 
-import com.comunicacao.utils.EntidadeUtils;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -29,14 +28,14 @@ public class AgendamentoComunicacaoEntidade implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = GENERATOR)
-    @Column(name = "id", columnDefinition = EntidadeUtils.BIGSERIAL)
+    @Column(name = "id", columnDefinition = EntidadeConstrains.BIGSERIAL)
     @Setter(AccessLevel.NONE)
     private Long id;
 
     @Column(name = "destino", columnDefinition = "VARCHAR(150)")
     private String destino;
 
-    @Column(name = "conteudo", columnDefinition = EntidadeUtils.TEXT)
+    @Column(name = "conteudo", columnDefinition = EntidadeConstrains.TEXT)
     private String conteudo;
 
     @CreatedDate
@@ -53,7 +52,7 @@ public class AgendamentoComunicacaoEntidade implements Serializable {
     private LocalDateTime dataEnvio;
 
     @Setter(AccessLevel.NONE)
-    @Column(name = "tentativas", columnDefinition = EntidadeUtils.INT_DEFAULT_0)
+    @Column(name = "tentativas", columnDefinition = EntidadeConstrains.INT_DEFAULT_0)
     private int tentativas;
 
     @Enumerated(value = EnumType.STRING)
@@ -65,14 +64,14 @@ public class AgendamentoComunicacaoEntidade implements Serializable {
     private AgendamentoTipo tipo;
 
     @Setter(AccessLevel.NONE)
-    @Column(name = "log_falha", columnDefinition = EntidadeUtils.TEXT)
+    @Column(name = "log_falha", columnDefinition = EntidadeConstrains.TEXT)
     private String logFalha;
 
     @Setter(AccessLevel.NONE)
-    @Column(name = "excluido", columnDefinition = EntidadeUtils.BOOLEAN_DEFAULT_FALSE)
+    @Column(name = "excluido", columnDefinition = EntidadeConstrains.BOOLEAN_DEFAULT_FALSE)
     private boolean excluido;
 
-    @Column(name = "codigo_rastreio", columnDefinition = EntidadeUtils.TEXT)
+    @Column(name = "codigo_rastreio", columnDefinition = EntidadeConstrains.TEXT)
     private String codigoRastreio;
 
     // Esse método seria para o futuro na implementação do envio

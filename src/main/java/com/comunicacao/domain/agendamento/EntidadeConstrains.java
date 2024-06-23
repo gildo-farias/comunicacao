@@ -1,6 +1,6 @@
-package com.comunicacao.utils;
+package com.comunicacao.domain.agendamento;
 
-public class EntidadeUtils {
+public final class EntidadeConstrains {
 
     public static final String BIGSERIAL = "BIGSERIAL";
     public static final String BOOLEAN_DEFAULT_FALSE = "boolean DEFAULT false";
