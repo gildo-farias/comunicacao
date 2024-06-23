@@ -75,15 +75,18 @@ public class AgendamentoComunicacaoEntidade implements Serializable {
     @Column(name = "codigo_rastreio", columnDefinition = EntidadeUtils.TEXT)
     private String codigoRastreio;
 
+    // Esse método seria para o futuro na implementação do envio
     final void processando() {
         this.tentativas++;
         this.status = AgendamentoStatus.PROCESSANDO;
     }
 
+    // Esse método seria para o futuro na implementação do envio
     final void enviado() {
         this.status = AgendamentoStatus.ENVIADO;
     }
 
+    // Esse método seria para o futuro na implementação do envio
     final void falha(String causa) {
         this.status = AgendamentoStatus.FALHA;
         this.logFalha = causa;
