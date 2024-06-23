@@ -1,6 +1,9 @@
 package com.comunicacao.controllers;
 
+import com.comunicacao.controllers.requisicoes.AgendamentoComunicacaoRequisicao;
+import com.comunicacao.controllers.respostas.RespostaCodigoRastreio;
 import com.comunicacao.controllers.respostas.RespostaStatus;
+import com.comunicacao.domain.agendamento.AgendamentoTipo;
 import com.comunicacao.services.AgendamentoComunicacaoService;
 import com.comunicacao.services.TesteAnotacaoMockito;
 import org.assertj.core.api.Assertions;
@@ -10,6 +13,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
+import java.time.LocalDateTime;
 
 public class AgendamentoComunicacaoControllerTest extends TesteAnotacaoMockito {
 
@@ -35,6 +40,20 @@ public class AgendamentoComunicacaoControllerTest extends TesteAnotacaoMockito {
         ResponseEntity<RespostaStatus> response = controller.visualizarStatus(codigoRastreio);
 
         Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+    }
+
+    @Test
+    public void givenDadosAgendamentoWhenAgendarAgendamentoThenDeveRetornar202() {
+        AgendamentoComunicacaoRequisicao requisicao = new AgendamentoComunicacaoRequisicao(
+                LocalDateTime.now(),
+                "Olá",
+                "teste@gmail.com",
+                AgendamentoTipo.EMAIL.name()
+        );
+
+        ResponseEntity<RespostaCodigoRastreio> response = controller.agendar(requisicao);
+
+        Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.ACCEPTED);
     }
 
 }
