@@ -21,7 +21,7 @@ class AgendamentoComunicacaoRequisicaoTest extends TesteAnotacaoMockito {
     private static AgendamentoComunicacaoRequisicao requisicaoIncompleta;
 
     @BeforeAll
-    static void setUp() {
+    static void iniciar() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
         requisicaoIncompleta = MocksMappers.mapearRequisicaoIncompleta();
