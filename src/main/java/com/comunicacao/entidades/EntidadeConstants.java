@@ -1,4 +1,4 @@
-package com.comunicacao.domain.agendamento;
+package com.comunicacao.entidades;
 
 public final class EntidadeConstants {
 

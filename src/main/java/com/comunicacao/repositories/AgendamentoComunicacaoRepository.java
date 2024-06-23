@@ -1,7 +1,7 @@
 package com.comunicacao.repositories;
 
-import com.comunicacao.domain.agendamento.AgendamentoComunicacaoEntidade;
 import com.comunicacao.domain.agendamento.AgendamentoStatus;
+import com.comunicacao.entidades.AgendamentoComunicacaoEntidade;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

@@ -1,9 +1,9 @@
 package com.comunicacao.mappers;
 
 import com.comunicacao.controllers.requisicoes.AgendamentoComunicacaoRequisicao;
-import com.comunicacao.domain.agendamento.AgendamentoComunicacaoEntidade;
 import com.comunicacao.domain.agendamento.AgendamentoStatus;
 import com.comunicacao.domain.agendamento.AgendamentoTipo;
+import com.comunicacao.entidades.AgendamentoComunicacaoEntidade;
 
 import java.util.UUID;
 

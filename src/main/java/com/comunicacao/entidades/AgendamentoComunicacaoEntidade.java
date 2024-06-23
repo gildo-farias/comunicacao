@@ -1,5 +1,7 @@
-package com.comunicacao.domain.agendamento;
+package com.comunicacao.entidades;
 
+import com.comunicacao.domain.agendamento.AgendamentoStatus;
+import com.comunicacao.domain.agendamento.AgendamentoTipo;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
