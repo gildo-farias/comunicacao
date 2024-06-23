@@ -16,8 +16,8 @@ import java.time.LocalDateTime;
 @Table(name = AgendamentoComunicacaoEntidade.NOME_TABELA)
 @SequenceGenerator(name = AgendamentoComunicacaoEntidade.GENERATOR, sequenceName = AgendamentoComunicacaoEntidade.SEQUENCE, allocationSize = 1)
 @Getter(AccessLevel.PUBLIC)
-@Setter(AccessLevel.PACKAGE)
-class AgendamentoComunicacaoEntidade implements Serializable {
+@Setter(AccessLevel.PUBLIC)
+public class AgendamentoComunicacaoEntidade implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 2040768015015828876L;

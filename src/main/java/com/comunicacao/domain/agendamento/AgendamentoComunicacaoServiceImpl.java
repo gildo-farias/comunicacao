@@ -2,11 +2,11 @@ package com.comunicacao.domain.agendamento;
 
 import com.comunicacao.controllers.requisicoes.AgendamentoComunicacaoRequisicao;
 import com.comunicacao.exceptions.CodigoRastreioInvalido;
+import com.comunicacao.mappers.AgendamentoComunicaoEntidadeMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-import java.util.UUID;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
@@ -18,13 +18,7 @@ class AgendamentoComunicacaoServiceImpl implements AgendamentoComunicacaoService
 
     @Override
     public String agendar(AgendamentoComunicacaoRequisicao requisicao) {
-        AgendamentoComunicacaoEntidade agendamento = new AgendamentoComunicacaoEntidade();
-        agendamento.setTipo(requisicao.tipo());
-        agendamento.setDestino(requisicao.destino());
-        agendamento.setConteudo(requisicao.conteudo());
-        agendamento.setDataEnvio(requisicao.dataHora());
-        agendamento.setCodigoRastreio(UUID.randomUUID().toString());
-        agendamento.setStatus(AgendamentoStatus.AGUARDANDO);
+        AgendamentoComunicacaoEntidade agendamento = AgendamentoComunicaoEntidadeMapper.mapearEntidade(requisicao);
         return repository.saveAndFlush(agendamento).getCodigoRastreio();
     }
 
