@@ -17,7 +17,6 @@ import org.springframework.http.ResponseEntity;
 public class AgendamentoComunicacaoControllerTest extends TesteAnotacaoMockito {
 
     @InjectMocks
-
     private AgendamentoComunicacaoController controller;
 
     @Mock
