@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -19,9 +20,10 @@ import java.time.LocalDateTime;
         @Index(columnList = "excluido", name = "excluido_idx"),
         @Index(columnList = "codigo_rastreio", name = "codigo_rastreio_idx")
 })
-@SequenceGenerator(name = AgendamentoComunicacaoEntidade.GENERATOR, sequenceName = AgendamentoComunicacaoEntidade.SEQUENCE, allocationSize = 1)
 @Getter(AccessLevel.PUBLIC)
 @Setter(AccessLevel.PUBLIC)
+@EntityListeners(AuditingEntityListener.class)
+@SequenceGenerator(name = AgendamentoComunicacaoEntidade.GENERATOR, sequenceName = AgendamentoComunicacaoEntidade.SEQUENCE, allocationSize = 1)
 public class AgendamentoComunicacaoEntidade implements Serializable {
 
     @Serial
