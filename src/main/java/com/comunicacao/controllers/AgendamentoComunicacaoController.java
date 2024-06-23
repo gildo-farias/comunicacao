@@ -1,6 +1,7 @@
 package com.comunicacao.controllers;
 
 import com.comunicacao.controllers.requisicoes.AgendamentoComunicacaoRequisicao;
+import com.comunicacao.controllers.respostas.RespostaCodigoRastreio;
 import com.comunicacao.controllers.respostas.RespostaStatus;
 import com.comunicacao.domain.agendamento.AgendamentoComunicacaoService;
 import lombok.RequiredArgsConstructor;
@@ -17,9 +18,9 @@ public class AgendamentoComunicacaoController {
     private final AgendamentoComunicacaoService service;
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> agendar(@RequestBody AgendamentoComunicacaoRequisicao requisicao) {
+    public ResponseEntity<RespostaCodigoRastreio> agendar(@RequestBody AgendamentoComunicacaoRequisicao requisicao) {
         String codigoRastreio = service.agendar(requisicao);
-        return ResponseEntity.accepted().body(codigoRastreio);
+        return ResponseEntity.accepted().body(new RespostaCodigoRastreio(codigoRastreio));
     }
 
     @GetMapping("/status/{codigoRastreio}")
