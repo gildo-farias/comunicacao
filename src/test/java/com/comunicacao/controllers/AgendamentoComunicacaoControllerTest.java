@@ -6,6 +6,7 @@ import com.comunicacao.controllers.respostas.RespostaStatus;
 import com.comunicacao.domain.agendamento.AgendamentoTipo;
 import com.comunicacao.services.AgendamentoComunicacaoService;
 import com.comunicacao.services.TesteAnotacaoMockito;
+import jakarta.validation.Valid;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -42,18 +43,21 @@ public class AgendamentoComunicacaoControllerTest extends TesteAnotacaoMockito {
         Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
     }
 
-    @Test
-    public void givenDadosAgendamentoWhenAgendarAgendamentoThenDeveRetornar202() {
-        AgendamentoComunicacaoRequisicao requisicao = new AgendamentoComunicacaoRequisicao(
+    private AgendamentoComunicacaoRequisicao criarRequisicaoCompletaAgendamento() {
+        return new AgendamentoComunicacaoRequisicao(
                 LocalDateTime.now(),
                 "Olá",
                 "teste@gmail.com",
                 AgendamentoTipo.EMAIL.name()
         );
+    }
 
+    @Test
+    public void givenDadosAgendamentoWhenAgendarAgendamentoThenDeveRetornar202() {
+        @Valid AgendamentoComunicacaoRequisicao requisicao = this.criarRequisicaoCompletaAgendamento();
         ResponseEntity<RespostaCodigoRastreio> response = controller.agendar(requisicao);
 
         Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.ACCEPTED);
     }
-
+    
 }
