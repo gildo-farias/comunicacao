@@ -6,9 +6,6 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -22,7 +19,6 @@ import java.time.LocalDateTime;
 })
 @Getter(AccessLevel.PUBLIC)
 @Setter(AccessLevel.PUBLIC)
-@EntityListeners(AuditingEntityListener.class)
 @SequenceGenerator(name = AgendamentoComunicacaoEntidade.GENERATOR, sequenceName = AgendamentoComunicacaoEntidade.SEQUENCE, allocationSize = 1)
 public class AgendamentoComunicacaoEntidade implements Serializable {
 
@@ -46,12 +42,10 @@ public class AgendamentoComunicacaoEntidade implements Serializable {
     @Column(name = "conteudo", columnDefinition = EntidadeConstants.TEXT)
     private String conteudo;
 
-    @CreatedDate
     @Setter(AccessLevel.NONE)
     @Column(name = "data_criacao")
     private LocalDateTime dataCriacao;
 
-    @LastModifiedDate
     @Setter(AccessLevel.NONE)
     @Column(name = "data_ultima_alteracao")
     private LocalDateTime dataUltimaAlteracao;
@@ -97,6 +91,17 @@ public class AgendamentoComunicacaoEntidade implements Serializable {
     final void falha(String causa) {
         this.status = AgendamentoStatus.FALHA;
         this.logFalha = causa;
+    }
+
+    @PrePersist
+    private void prePersist() {
+        this.status = AgendamentoStatus.AGUARDANDO;
+        this.dataCriacao = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    private void preUpdate() {
+        this.dataUltimaAlteracao = LocalDateTime.now();
     }
 
 }

@@ -1,7 +1,6 @@
 package com.comunicacao.controllers.mappers;
 
 import com.comunicacao.controllers.requisicoes.AgendamentoComunicacaoRequisicao;
-import com.comunicacao.domain.agendamento.AgendamentoStatus;
 import com.comunicacao.domain.agendamento.AgendamentoTipo;
 import com.comunicacao.entidades.AgendamentoComunicacaoEntidade;
 
@@ -16,7 +15,6 @@ public class AgendamentoComunicaoEntidadeMapper {
         agendamento.setConteudo(requisicao.conteudo());
         agendamento.setDataEnvio(requisicao.dataHoraEnvio());
         agendamento.setCodigoRastreio(UUID.randomUUID().toString());
-        agendamento.setStatus(AgendamentoStatus.AGUARDANDO);
         return agendamento;
     }
 
