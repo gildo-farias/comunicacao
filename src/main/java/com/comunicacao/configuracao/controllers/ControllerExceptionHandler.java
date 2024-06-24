@@ -19,11 +19,11 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ControllerExceptionHandler {
 
-    public static final String FORMATO_DE_DATA_HORA_INVALIDA = "formato de data/hora inválida";
+    static final String FORMATO_DE_DATA_HORA_INVALIDA = "formato de data/hora inválida";
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<RespostaErro> handleValidationExceptions(MethodArgumentNotValidException ex) {
+    public ResponseEntity<RespostaErro> handlerValidationExceptions(MethodArgumentNotValidException ex) {
         Set<String> erros = ex.getBindingResult().getAllErrors().stream()
                 .map(DefaultMessageSourceResolvable::getDefaultMessage)
                 .collect(Collectors.toSet());
@@ -32,7 +32,7 @@ public class ControllerExceptionHandler {
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResponseEntity<RespostaErro> handleFormatDateTime(HttpMessageNotReadableException ex) {
+    public ResponseEntity<RespostaErro> handlerFormatoDateTime(HttpMessageNotReadableException ex) {
         return ResponseEntity.badRequest().body(new RespostaErro(Collections.singleton(FORMATO_DE_DATA_HORA_INVALIDA)));
     }
 
