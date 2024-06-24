@@ -6,7 +6,7 @@
 - Clonar o repositorio.
 - Usar Java versão 21.
 - Rodar o docker compose dentro do projeto para criar/subir banco.
-- mvn install
+- mvn install (ou baixar as dependências maven)
 - Executar a classe main `EnvioDeComunicacaoApplication.class`
 
 # Testando a API com Swagger:
